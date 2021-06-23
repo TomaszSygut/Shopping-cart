@@ -3,9 +3,12 @@ const express = require("express");
 const app = express();
 const productRoutes = require("./routes/productRoutes");
 const connectDB = require("./config/db");
+
+
+
+
 const path = require("path");
 
-  
 
 if(process.env.NODE_ENV === 'production') { 
 app.use(express.static('../client/build'));
@@ -13,16 +16,11 @@ app.use(express.static('../client/build'));
 app.get('*', (req,res) => {
 res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
-}
+} 
  
-// Step 2:   
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});  
  
+  
 connectDB();
-
-
  
 app.use(express.json());
  
