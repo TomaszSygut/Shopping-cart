@@ -6,10 +6,10 @@ const connectDB = require("./config/db");
 const path = require("path");
 
 // Step 1: 
-app.use(express.static(path.resolve(__dirname, "/Users/mac-113/Desktop/Shopping-cartt/frontend/build")));
+app.use(express.static(path.resolve(__dirname, "/Users/mac-113/Desktop/Shopping-cartt/client/build")));
 // Step 2:
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "/Users/mac-113/Desktop/Shopping-cartt/frontend/build", "index.html"));
+  response.sendFile(path.resolve(__dirname, "/Users/mac-113/Desktop/Shopping-cartt/client/build", "index.html"));
 });
 
 connectDB();
